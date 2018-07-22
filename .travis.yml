@@ -4,4 +4,12 @@ osx_image: xcode9.4
 xcode_project: Quiz.xcodeproj
 xcode_scheme: Quiz
 
-script: xcrun xcodebuild test -project Quiz.xcodeproj -scheme Quiz -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.4'
+before_script: ./create-keychain.sh
+
+script: ./build.sh
+
+after_script: ./delete-keychain.sh
+
+env:
+  global:
+    secure: MR9GJiY38LIU+vh+9N81GlWzJ5kPLd5jvJ+2yfpUgdawSJeLrnbhfPA2kKjPXzWzvDbpwWaQRxD+6e59cQ70fwnOMR3upkz3KL1ITF8DGRsRsPs0j+3WfVhdxgQbsiqve/r6L7dfWPx1c826fJ1THG8fWE3V+pTi7OSIYh+FZl4/1b/j/ZRNRlIvQoyvDkuUnpubiku1nXoWTcFN5EQGuf4TGmNiKZ9Hma8MZc9Jb+kEO075UWJQ085YD6VP4dUYigadAvJFr2xgFBR0fCDV0Tj75Syd/QaZNNq8CdePscCTk9xAWGRawXwBh8N/lQ1NYZApS3zZIFek1prdmIuRa64M0IerIipb0FHmhnSw/8QVPyaJdrRxnDB8xT/1O1GUlN8pYNEylyaTFWCZpDq9zcb4iX13NruhMO8fFuIi7mqkWASpCqpzIiNhatGDtVnorMgI9hByFRn3pm5d2GtWKMW9UbnMQaxDrk9yjv9dnKJsrNXTOT0bg1PzuA7uD+tinxTawzPobxdC4KACtGWNfRmhRgMktsJVkXkIFiqhM3kW2nRt7wZkD4aIOqF+CX+Ohe3RsgRv7SgTFrXBubmpgo+2jGTVnDCl6M0+gGN9OSQEQ7GL+EIeWJ/pLDk7v+AgGlUBf6ExMWcLhCuYBkpl6kmEAA01WWtQf5EhPCDa3QA=
