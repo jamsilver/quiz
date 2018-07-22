@@ -6,7 +6,9 @@ rm ~/Library/MobileDevice/Provisioning\ Profiles/profile.mobileprovision
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles/
 cp profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
 
-xcrun xcodebuild -project Quiz.xcodeproj -scheme Quiz -archivePath Quiz.xcarchive archive
+mkdir build
 
-xcrun xcodebuild -exportArchive -archivePath Quiz.xcarchive -exportPath . -exportOptionsPlist ExportOptions.plist
+xcrun xcodebuild -project Quiz.xcodeproj -scheme Quiz -archivePath build/Quiz.xcarchive archive
+
+xcrun xcodebuild -exportArchive -archivePath build/Quiz.xcarchive -exportPath build -exportOptionsPlist ExportOptions.plist
 
