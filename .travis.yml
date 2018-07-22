@@ -1,1 +1,7 @@
 language: objective-c
+osx_image: xcode9.4
+
+xcode_project: Quiz.xcodeproj
+xcode_scheme: Quiz
+
+script: xcrun xcodebuild test -project Quiz.xcodeproj -scheme Quiz -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.4'
