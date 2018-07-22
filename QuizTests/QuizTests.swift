@@ -3,7 +3,7 @@
 //  QuizTests
 //
 //  Created by James Silver on 09/05/2018.
-//  Copyright © 2018 Silver Service. All rights reserved.
+//  Copyright © 2018 James Silver. All rights reserved.
 //
 
 import XCTest
