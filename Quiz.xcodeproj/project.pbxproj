@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D23584A82104B33200580771 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = D23584A72104B33200580771 /* .travis.yml */; };
+		D23584AC2104D11200580771 /* create-keychain.sh in Resources */ = {isa = PBXBuildFile; fileRef = D23584A92104D11100580771 /* create-keychain.sh */; };
+		D23584AD2104D11200580771 /* delete-keychain.sh in Resources */ = {isa = PBXBuildFile; fileRef = D23584AA2104D11100580771 /* delete-keychain.sh */; };
+		D23584AE2104D11200580771 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = D23584AB2104D11200580771 /* build.sh */; };
 		D2F6395D20A2ACB600CD1E50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6395C20A2ACB600CD1E50 /* AppDelegate.swift */; };
 		D2F6395F20A2ACB700CD1E50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6395E20A2ACB700CD1E50 /* ViewController.swift */; };
 		D2F6396220A2ACB700CD1E50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F6396020A2ACB700CD1E50 /* Main.storyboard */; };
@@ -36,6 +39,9 @@
 
 /* Begin PBXFileReference section */
 		D23584A72104B33200580771 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		D23584A92104D11100580771 /* create-keychain.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "create-keychain.sh"; sourceTree = "<group>"; };
+		D23584AA2104D11100580771 /* delete-keychain.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "delete-keychain.sh"; sourceTree = "<group>"; };
+		D23584AB2104D11200580771 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		D2F6395920A2ACB600CD1E50 /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F6395C20A2ACB600CD1E50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2F6395E20A2ACB700CD1E50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				D23584A72104B33200580771 /* .travis.yml */,
+				D23584AB2104D11200580771 /* build.sh */,
+				D23584A92104D11100580771 /* create-keychain.sh */,
+				D23584AA2104D11100580771 /* delete-keychain.sh */,
 				D2F6395B20A2ACB600CD1E50 /* Quiz */,
 				D2F6397020A2ACB800CD1E50 /* QuizTests */,
 				D2F6397B20A2ACB800CD1E50 /* QuizUITests */,
@@ -238,8 +247,11 @@
 			files = (
 				D2F6396720A2ACB800CD1E50 /* LaunchScreen.storyboard in Resources */,
 				D2F6396420A2ACB800CD1E50 /* Assets.xcassets in Resources */,
+				D23584AC2104D11200580771 /* create-keychain.sh in Resources */,
+				D23584AE2104D11200580771 /* build.sh in Resources */,
 				D23584A82104B33200580771 /* .travis.yml in Resources */,
 				D2F6396220A2ACB700CD1E50 /* Main.storyboard in Resources */,
+				D23584AD2104D11200580771 /* delete-keychain.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,15 +452,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GM2MR48S;
 				INFOPLIST_FILE = Quiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Quiz;
+				PRODUCT_BUNDLE_IDENTIFIER = digital.silverservice.quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "quiz ad-hoc";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -458,15 +472,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GM2MR48S;
 				INFOPLIST_FILE = Quiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Quiz;
+				PRODUCT_BUNDLE_IDENTIFIER = digital.silverservice.quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "quiz ad-hoc";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -477,7 +493,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GM2MR48S;
 				INFOPLIST_FILE = QuizTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -485,8 +502,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuizTests;
+				PRODUCT_BUNDLE_IDENTIFIER = digital.silverservice.quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Quiz.app/Quiz";
@@ -498,7 +516,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GM2MR48S;
 				INFOPLIST_FILE = QuizTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -506,8 +525,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuizTests;
+				PRODUCT_BUNDLE_IDENTIFIER = digital.silverservice.quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Quiz.app/Quiz";
@@ -518,7 +538,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GM2MR48S;
 				INFOPLIST_FILE = QuizUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -526,8 +547,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuizUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = digital.silverservice.quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "quiz ad-hoc";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Quiz;
@@ -538,7 +560,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GM2MR48S;
 				INFOPLIST_FILE = QuizUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -546,8 +569,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.QuizUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = digital.silverservice.quiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "quiz ad-hoc";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Quiz;
